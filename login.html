@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login & Signup</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-[url('./images/bg-img.jpg')] bg-cover bg-center h-64 w-full flex flex-col items-center justify-center min-h-screen p-4">
+
+    <h1 class="text-white text-6xl pb-10 font-mono">Welcome! Audio Freak</h1>
+
+  <div class="bg-white/30 rounded-xl shadow-md w-[500px] backdrop-blur-md">
+    <div class="flex justify-around border-b">
+      <button onclick="showTab('login')" class="w-full py-3 text-center font-medium hover:bg-gray-100 hover:text-black text-white " id="login-tab">Login</button>
+      <button onclick="showTab('signup')" class="w-full py-3 text-center font-medium hover:bg-gray-100 hover:text-black text-white" id="signup-tab">Sign Up</button>
+    </div>
+
+    <!-- Login Form -->
+    <div id="login-form" class="p-6">
+      <h2 class="font-semibold mb-5 text-center text-white text-3xl font-mono">Login</h2>
+      <form>
+        <input type="email" placeholder="Email" class="w-full mb-3 px-4 py-2 border rounded-md" required>
+        <input type="password" placeholder="Password" class="w-full mb-4 px-4 py-2 border rounded-md" required>
+        <button class="w-full bg-black/70 hover:bg-black text-white py-2 rounded-md">Login</button>
+      </form>
+    </div>
+
+    <!-- Signup Form -->
+    <div id="signup-form" class="p-6 hidden">
+      <h2 class="font-mono font-semibold mb-5 text-white text-3xl text-center">Sign Up</h2>
+      <form>
+        <input type="text" placeholder="Name" class="w-full mb-3 px-4 py-2 border rounded-md" required>
+        <input type="email" placeholder="Email" class="w-full mb-3 px-4 py-2 border rounded-md" required>
+        <input type="password" placeholder="Password" class="w-full mb-4 px-4 py-2 border rounded-md" required>
+        <button class="w-full bg-black/70 hover:bg-black text-white py-2 rounded-md">Sign Up</button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    const loginForm = document.getElementById('login-form');
+    const signupForm = document.getElementById('signup-form');
+    const loginTab = document.getElementById('login-tab');
+    const signupTab = document.getElementById('signup-tab');
+
+    function showTab(tab) {
+      if (tab === 'login') {
+        loginForm.classList.remove('hidden');
+        signupForm.classList.add('hidden');
+        loginTab.classList.add('border-b-2', 'border-blue-600');
+        signupTab.classList.remove('border-b-2', 'border-blue-600');
+      } else {
+        loginForm.classList.add('hidden');
+        signupForm.classList.remove('hidden');
+        signupTab.classList.add('border-b-2', 'border-blue-600');
+        loginTab.classList.remove('border-b-2', 'border-blue-600');
+      }
+    }
+
+    // Set default tab
+    showTab('login');
+  </script>
+
+</body>
+</html>
